@@ -11,7 +11,7 @@ const Loading = () => {
         <span className="dot dot2">.</span>
         <span className="dot dot3">.</span>
       </p>
-      <style jsx>{`
+      <style>{`
         .loading-container {
           display: flex;
           justify-content: center;

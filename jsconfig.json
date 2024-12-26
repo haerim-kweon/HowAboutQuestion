@@ -3,5 +3,5 @@
         "baseUrl": "src"
     },
     "include": [
-        "src", "src/main.js"    ]
+        "src", "src/main.js", "preload.js"    ]
 }
