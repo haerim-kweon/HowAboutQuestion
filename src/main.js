@@ -7,10 +7,15 @@ const Papa = require('papaparse');
 const archiver = require("archiver");
 const os = require('os');
 const extract = require('extract-zip'); // 압축 해제 모듈
+const { autoUpdater } = require("electron-updater");
+
 
 // 실행 파일의 디렉토리 경로 (배포 후 실행파일 위치)
 const exeDir = path.dirname(app.getPath('exe'));
 console.log("Executable directory:", exeDir);
+
+
+let win;
 
 // questions.csv와 history.csv 파일 경로를 실행파일 위치 기준으로 설정
 // const questionsCsvPath = path.join(exeDir, 'questions.csv');

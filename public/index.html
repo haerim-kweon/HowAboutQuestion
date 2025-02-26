@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <link rel="icon" href="./images/icon.svg" type="image/x-icon"/>
+  <link rel="icon" href="./images/icon.ico" type="image/x-icon"/>
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="문제어때때" />
@@ -12,6 +12,25 @@
 </head>
 
 <body>
+
+  <div class="notification hidden">
+    <div class="notification-modal">
+      <h2 class="modal-title"> 업데이트 안내 </h2>
+      <h2 id="version"> </h2>
+      <p class="update-message"></p>
+      <div class="updater-btn-wrapper">
+        <button id="close-button" class="btn btn-secondary hidden"> 닫기 </button>
+        <button id="restart-button" class="btn btn-primary hidden"> 재시작 </button>
+      </div>
+    </div>
+  </div>
+  <div class="loading-wrapper hidden">
+    <div class="loading-container">
+      <div class="loading"></div>
+      <div id="loading-text">loading</div>
+    </div>
+  </div>
+  
   <div id="root"></div>
   <div id="modal-root"></div> <!-- 이 줄을 추가하세요 -->
 

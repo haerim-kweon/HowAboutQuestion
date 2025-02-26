@@ -28,7 +28,7 @@ function Multiple({ question, index, onAnswerChange }) {
         <div>
           <img
             onClick={handleImageClick}
-            className="bg-gray-50 max-w-max w-96 h-auto rounded"
+            className="bg-gray-50 max-w-max w-96 h-auto rounded" 
             src={question.img}
             alt=""
           />

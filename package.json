@@ -18,6 +18,7 @@
     "date-fns": "^4.1.0",
     "dotenv": "^16.4.7",
     "electron-squirrel-startup": "^1.0.1",
+    "electron-updater": "^6.3.9",
     "extract-zip": "^2.0.1",
     "fs": "^0.0.1-security",
     "os": "^0.1.2",
@@ -32,12 +33,17 @@
     "recoil": "^0.7.7",
     "web-vitals": "^4.2.4"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/haerim-kweon/HowAboutQuestion.git"
+  },
   "scripts": {
     "start:react": "react-scripts start",
     "start:electron": "electron-forge start",
     "start": "npm-run-all start:electron",
     "clean": "rimraf dist && rimraf build",
     "build": "react-scripts build",
+    "deploy": "electron-builder build --win --publish always",
     "electron": "electron .",
     "package": "electron-forge package",
     "make": "electron-forge make"
@@ -81,7 +87,8 @@
       "category": "public.app-category.utilities"
     },
     "win": {
-      "target": "nsis"
+      "target": "nsis",
+      "icon": "assets/icons/icon.ico"
     },
     "linux": {
       "target": "AppImage"
