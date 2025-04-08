@@ -1,17 +1,22 @@
 {
   "name": "HowAboutQuestion",
-  "version": "0.1.0",
+  "version": "1.1.1",
   "homepage": ".",
-  "main": "src/main.js",
+  "description": "문제 만들고 문제 푸는 앱",
+  "author": "권해림과 원숭이",
+  "main": "public/electron.js",
   "files": [
     "build/**/*",
     "src/**/*",
+    "public/**/*",
+    "preload.js",  
     "node_modules/**/*"
   ],
   "private": true,
   "dependencies": {
     "adm-zip": "^0.5.16",
     "archiver": "^7.0.1",
+    "archiver-utils": "^5.0.2",
     "chart.js": "^4.4.7",
     "chartjs-adapter-date-fns": "^3.0.0",
     "cra-template": "1.2.0",
@@ -40,6 +45,7 @@
     "build": "react-scripts build",
     "electron": "electron .",
     "package": "electron-forge package",
+    "deploy:osx": "electron-builder --mac",
     "make": "electron-forge make"
   },
   "eslintConfig": {
@@ -78,7 +84,11 @@
     "appId": "com.HowAboutQuestion.www",
     "productName": "HowAboutQuestion",
     "mac": {
-      "category": "public.app-category.utilities"
+      "category": "public.app-category.utilities",
+      "icon": "build/icon.icns"
+    },
+    "dmg": {
+      "title": "HowAboutQuestion"
     },
     "win": {
       "target": "nsis"
@@ -91,11 +101,13 @@
     "files": [
       "build/**/*",
       "src/**/*",
+      "public/**/*",
+      "preload.js",  
       "node_modules/**/*"
     ],
     "extraResources": [],
     "extraMetadata": {
-      "main": "src/main.js"
+      "main": "public/electron.js"
     }
   }
 }

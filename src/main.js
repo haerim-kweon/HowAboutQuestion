@@ -1,6 +1,6 @@
 require("dotenv").config();
 
-const { app, BrowserWindow, ipcMain, dialog } = require("electron");
+const { app, BrowserWindow, ipcMain, dialog, Menu } = require("electron");
 const path = require('path');
 const fs = require('fs');
 const Papa = require('papaparse');
@@ -9,9 +9,10 @@ const os = require('os');
 const extract = require('extract-zip'); // 압축 해제 모듈
 
 // 실행 파일의 디렉토리 경로 (배포 후 실행파일 위치)
-const exeDir = path.dirname(app.getPath('exe'));
+// const exeDir = path.dirname(app.getPath('exe'));
 
-// questions.csv와 history.csv 파일 경로를 실행파일 위치 기준으로 설정
+const exeDir = app.getPath('userData');
+
 const questionsCsvPath = path.join(exeDir, 'questions.csv');
 const historyCsvPath = path.join(exeDir, 'history.csv');
 
@@ -288,11 +289,12 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: true,
-      preload: path.join(__dirname, 'preload.js'),
+      preload: path.join(app.getAppPath(), 'preload.js'),
     },
   });
 
   // 빌드 후 index.html 파일 경로
+  Menu.setApplicationMenu(Menu.buildFromTemplate([]));
   mainWindow.setMenu(null);
 
   // mainWindow.loadURL('http://localhost:3000'); // 개발 서버에서 실행 중인 React 앱 로드
